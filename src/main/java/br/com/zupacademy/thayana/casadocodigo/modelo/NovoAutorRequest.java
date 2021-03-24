@@ -4,6 +4,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zupacademy.thayana.casadocodigo.config.validacao.AutorInsert;
+
+@AutorInsert
 public class NovoAutorRequest {
 
 	@NotBlank
@@ -27,6 +30,10 @@ public class NovoAutorRequest {
 
 	public Autor toModel() {
 		return new Autor(this.nome, this.email, this.descricao);
+	}
+
+	public String getEmail() {
+		return email;
 	}
 
 }

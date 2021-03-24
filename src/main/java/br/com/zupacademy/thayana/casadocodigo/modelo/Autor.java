@@ -23,6 +23,7 @@ public class Autor {
 
 	@Email
 	@NotBlank
+	@Column(unique = true)
 	private String email;
 
 	@NotBlank
@@ -31,6 +32,10 @@ public class Autor {
 
 	@Column(name = "data_registro")
 	private LocalDateTime dataRegistro = LocalDateTime.now();
+	
+	public Autor() {
+	}
+
 
 	public Autor(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400) String descricao) {
 		super();
@@ -44,5 +49,4 @@ public class Autor {
 		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
 				+ ", dataRegistro=" + dataRegistro + "]";
 	}
-
 }
