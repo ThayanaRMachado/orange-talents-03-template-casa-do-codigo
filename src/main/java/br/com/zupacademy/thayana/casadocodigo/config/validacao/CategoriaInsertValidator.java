@@ -8,30 +8,30 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.zupacademy.thayana.casadocodigo.modelo.Autor;
 import br.com.zupacademy.thayana.casadocodigo.modelo.Categoria;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoAutorRequest;
-import br.com.zupacademy.thayana.casadocodigo.repository.AutorInsert;
-import br.com.zupacademy.thayana.casadocodigo.repository.AutorRepository;
+import br.com.zupacademy.thayana.casadocodigo.modelo.NovaCategoriaRequest;
+import br.com.zupacademy.thayana.casadocodigo.repository.CategoriaInsert;
 import br.com.zupacademy.thayana.casadocodigo.repository.CategoriaRepository;
 
-public class AutorInsertValidator implements ConstraintValidator<AutorInsert, NovoAutorRequest> {
-	
+public class CategoriaInsertValidator implements ConstraintValidator<CategoriaInsert, NovaCategoriaRequest> {
+
 	@Autowired
-	private AutorRepository autorRepository;
-	
+	private CategoriaRepository categoriaRepository;
+
 	@Override
-	public void initialize(AutorInsert ann) {
+	public void initialize(CategoriaInsert ann) {
 	}
 
 	@Override
-	public boolean isValid(NovoAutorRequest objDto, ConstraintValidatorContext context) {
+	public boolean isValid(NovaCategoriaRequest objDto, ConstraintValidatorContext context) {
 		List<FieldErrorOutputDto> list = new ArrayList<>();
-
-		Autor aux = autorRepository.findByEmail(objDto.getEmail());
-		if (aux != null) {
-			list.add(new FieldErrorOutputDto("email", "Email já existente"));
+	
+		Categoria aux = categoriaRepository.findByNome(objDto.getNome());
+		
+		 if (aux != null) { 
+			  list.add(new FieldErrorOutputDto("nome", "Nome já existente")); 
 		}
+		 
 
 		for (FieldErrorOutputDto e : list) {
 			context.disableDefaultConstraintViolation();
@@ -40,4 +40,5 @@ public class AutorInsertValidator implements ConstraintValidator<AutorInsert, No
 		}
 		return list.isEmpty();
 	}
+
 }

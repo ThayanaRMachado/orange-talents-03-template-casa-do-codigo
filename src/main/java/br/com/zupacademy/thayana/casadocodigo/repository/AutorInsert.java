@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.config.validacao;
+package br.com.zupacademy.thayana.casadocodigo.repository;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+
+import br.com.zupacademy.thayana.casadocodigo.config.validacao.AutorInsertValidator;
 
 @Constraint(validatedBy = AutorInsertValidator.class)
 @Target({ ElementType.TYPE })
