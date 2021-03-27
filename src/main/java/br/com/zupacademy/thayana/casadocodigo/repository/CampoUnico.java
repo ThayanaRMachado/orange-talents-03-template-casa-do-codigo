@@ -8,16 +8,20 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import br.com.zupacademy.thayana.casadocodigo.config.validacao.AutorInsertValidator;
+import br.com.zupacademy.thayana.casadocodigo.config.validacao.CampoUnicoValidator;
 
-@Constraint(validatedBy = AutorInsertValidator.class)
-@Target({ ElementType.TYPE })
+@Constraint(validatedBy = { CampoUnicoValidator.class })
+@Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface AutorInsert {
-	
-	String message() default "Erro de validação";
+public @interface CampoUnico {
+
+	String message() default "Campo já existente";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
+
+	String nomeAtributo();
+
+	Class<?> classe();
 }

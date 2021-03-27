@@ -2,12 +2,12 @@ package br.com.zupacademy.thayana.casadocodigo.modelo;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.CategoriaInsert;
+import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
 
-@CategoriaInsert
 public class NovaCategoriaRequest {
 
 	@NotBlank
+	@CampoUnico(classe = Categoria.class, nomeAtributo = "nome")
 	private String nome;
 
 	public NovaCategoriaRequest() {

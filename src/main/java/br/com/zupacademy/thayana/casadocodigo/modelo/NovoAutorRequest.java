@@ -4,9 +4,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.AutorInsert;
+import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
 
-@AutorInsert
 public class NovoAutorRequest {
 
 	@NotBlank
@@ -14,6 +13,7 @@ public class NovoAutorRequest {
 
 	@NotBlank
 	@Email
+	@CampoUnico(classe = Autor.class, nomeAtributo = "email")
 	private String email;
 
 	@NotBlank
