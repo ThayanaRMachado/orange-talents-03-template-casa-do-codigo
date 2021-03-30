@@ -32,10 +32,9 @@ public class Autor {
 
 	@Column(name = "data_registro")
 	private LocalDateTime dataRegistro = LocalDateTime.now();
-	
+
 	public Autor() {
 	}
-
 
 	public Autor(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400) String descricao) {
 		super();
@@ -43,14 +42,18 @@ public class Autor {
 		this.email = email;
 		this.descricao = descricao;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
 				+ ", dataRegistro=" + dataRegistro + "]";
 	}
-	
+
 	public String getNome() {
 		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
 	}
 }
