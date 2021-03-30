@@ -22,7 +22,6 @@ public class NovoAutorRequest {
 
 	public NovoAutorRequest(@NotBlank String nome, @NotBlank @Email String email,
 			@NotBlank @Size(max = 400) String descricao) {
-		super();
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
