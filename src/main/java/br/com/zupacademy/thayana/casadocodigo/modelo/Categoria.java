@@ -17,7 +17,7 @@ public class Categoria {
 	@NotBlank
 	@Column(unique = true)
 	private String nome;
-	
+
 	public Categoria() {
 	}
 
@@ -29,6 +29,14 @@ public class Categoria {
 	@Override
 	public String toString() {
 		return "Categoria [id=" + id + ", nome=" + nome + "]";
-	}	
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
 
 }

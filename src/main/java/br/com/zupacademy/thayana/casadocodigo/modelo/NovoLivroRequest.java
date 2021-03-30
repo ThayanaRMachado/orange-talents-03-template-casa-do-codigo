@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.util.Assert;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
@@ -67,6 +69,9 @@ public class NovoLivroRequest {
 	public Livro toModel(EntityManager manager) {
 		Autor autor = manager.find(Autor.class, idAutor);
 		Categoria categoria = manager.find(Categoria.class, idCategoria);
+		
+		Assert.state(autor!=null,"Você está querendo cadastrar um livro para um autor que não existe no banco "+idAutor);
+		Assert.state(categoria!=null,"Você está querendo cadastrar um livro para uma categoria que não existe no banco "+idCategoria);
 
 		return new Livro(titulo, resumo, sumario, valor, paginas, isbn, dataPublicacao, autor, categoria);
 	}
