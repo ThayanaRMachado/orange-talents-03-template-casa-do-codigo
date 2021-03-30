@@ -23,12 +23,12 @@ public class Livro {
 	private Long id;
 
 	@NotBlank
-	@Size(max = 500)
-	private String resumo;
-
-	@NotBlank
 	@Column(unique = true)
 	private String titulo;
+
+	@NotBlank
+	@Size(max = 500)
+	private String resumo;
 
 	@NotBlank
 	private String sumario;
@@ -57,11 +57,11 @@ public class Livro {
 	@NotNull
 	private Categoria categoria;
 
-	public Livro(@NotBlank @Size(max = 500) String resumo, @NotBlank String titulo, @NotBlank String sumario,
+	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal valor, @Min(100) Long paginas, @NotBlank String isbn,
 			@NotNull @Future LocalDate dataPublicacao, @NotNull Autor autor, @NotNull Categoria categoria) {
-		this.resumo = resumo;
 		this.titulo = titulo;
+		this.resumo = resumo;
 		this.sumario = sumario;
 		this.valor = valor;
 		this.paginas = paginas;
@@ -71,9 +71,21 @@ public class Livro {
 		this.categoria = categoria;
 	}
 
+	public Livro() {
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", resumo=" + resumo + ", titulo=" + titulo + ", sumario=" + sumario + ", valor="
+		return "Livro [id=" + id + ", titulo=" + titulo + ", resumo=" + resumo + ", sumario=" + sumario + ", valor="
 				+ valor + ", paginas=" + paginas + ", isbn=" + isbn + ", dataPublicacao=" + dataPublicacao + ", autor="
 				+ autor + ", categoria=" + categoria + "]";
 	}

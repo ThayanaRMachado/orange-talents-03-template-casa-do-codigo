@@ -3,7 +3,6 @@ package br.com.zupacademy.thayana.casadocodigo.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
@@ -19,12 +18,12 @@ import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
 public class NovoLivroRequest {
 
 	@NotBlank
-	@Size(max = 500)
-	private String resumo;
-
-	@NotBlank
 	@CampoUnico(classe = Livro.class, nomeAtributo = "titulo")
 	private String titulo;
+	
+	@NotBlank
+	@Size(max = 500)
+	private String resumo;
 
 	@NotBlank
 	private String sumario;
@@ -51,12 +50,11 @@ public class NovoLivroRequest {
 	@NotNull
 	private Long idCategoria;
 
-	public NovoLivroRequest(@NotBlank @Size(max = 500) String resumo, @NotBlank String titulo, @NotBlank String sumario,
+	public NovoLivroRequest(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal valor, @Min(100) Long paginas, @NotBlank String isbn,
 			@Future @NotNull LocalDate dataPublicacao, @NotNull Long idAutor, @NotNull Long idCategoria) {
-		super();
-		this.resumo = resumo;
 		this.titulo = titulo;
+		this.resumo = resumo;
 		this.sumario = sumario;
 		this.valor = valor;
 		this.paginas = paginas;
@@ -70,7 +68,7 @@ public class NovoLivroRequest {
 		Autor autor = manager.find(Autor.class, idAutor);
 		Categoria categoria = manager.find(Categoria.class, idCategoria);
 
-		return new Livro(resumo, titulo, sumario, valor, paginas, isbn, dataPublicacao, autor, categoria);
+		return new Livro(titulo, resumo, sumario, valor, paginas, isbn, dataPublicacao, autor, categoria);
 	}
 
 }
