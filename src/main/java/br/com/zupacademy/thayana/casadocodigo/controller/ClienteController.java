@@ -10,22 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoPaisRequest;
-import br.com.zupacademy.thayana.casadocodigo.modelo.Pais;
+import br.com.zupacademy.thayana.casadocodigo.modelo.Cliente;
+import br.com.zupacademy.thayana.casadocodigo.modelo.NovoClienteRequest;
 
 @RestController
-@RequestMapping("/pais")
-public class PaisController {
+@RequestMapping("/clientes")
+public class ClienteController {
 
 	@PersistenceContext
 	private EntityManager manager;
 
 	@PostMapping
-	@Transactional
-	public String cadastrar(@RequestBody @Valid NovoPaisRequest request) {
-		Pais paisSalvo = request.toModel();
-		manager.persist(paisSalvo);
-		return paisSalvo.toString();
 
+	@Transactional
+	public String cadastrar(@RequestBody @Valid NovoClienteRequest request) {
+		Cliente clienteSalvo = request.toModel(manager);
+		manager.persist(clienteSalvo);
+		return clienteSalvo.toString();
 	}
+
 }

@@ -13,13 +13,13 @@ public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
 	@Column(unique = true)
 	private String nome;
-	
+
 	public Pais() {
-		
+
 	}
 
 	public Pais(@NotBlank String nome) {
@@ -30,5 +30,5 @@ public class Pais {
 	public String toString() {
 		return "Pais [id=" + id + ", nome=" + nome + "]";
 	}
-	
+
 }

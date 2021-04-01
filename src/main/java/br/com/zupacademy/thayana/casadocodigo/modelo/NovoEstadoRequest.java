@@ -13,7 +13,7 @@ public class NovoEstadoRequest {
 	@NotBlank
 	@CampoUnico(classe = Estado.class, nomeAtributo = "nome")
 	private String nome;
-	
+
 	@NotNull
 	private Long idPais;
 
@@ -25,11 +25,11 @@ public class NovoEstadoRequest {
 
 	public Estado toModel(EntityManager manager) {
 		Pais pais = manager.find(Pais.class, idPais);
-		
-		Assert.state(pais != null,"Você está querendo cadastrar um livro para um autor que não existe no banco "+ idPais);
+
+		Assert.state(pais != null,
+				"Você está querendo cadastrar um livro para um autor que não existe no banco " + idPais);
 
 		return new Estado(nome, pais);
 	}
-	
-	
+
 }

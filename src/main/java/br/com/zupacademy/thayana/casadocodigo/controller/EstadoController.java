@@ -14,7 +14,7 @@ import br.com.zupacademy.thayana.casadocodigo.modelo.Estado;
 import br.com.zupacademy.thayana.casadocodigo.modelo.NovoEstadoRequest;
 
 @RestController
-@RequestMapping("/estados")
+@RequestMapping("/estado")
 public class EstadoController {
 
 	@PersistenceContext

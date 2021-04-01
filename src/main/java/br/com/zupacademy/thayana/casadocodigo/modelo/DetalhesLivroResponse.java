@@ -1,8 +1,6 @@
 package br.com.zupacademy.thayana.casadocodigo.modelo;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class DetalhesLivroResponse {
 
@@ -28,18 +26,21 @@ public class DetalhesLivroResponse {
 
 	}
 
-	public DetalhesLivroResponse(Livro livro) {
-		this.titulo = livro.getTitulo();
-		this.autor = livro.getAutor();
-		this.descricao = livro.getAutor().getDescricao();
-		this.valor = livro.getValor();
-		this.resumo = livro.getResumo();
-		this.sumario = livro.getSumario();
-		this.paginas = livro.getPaginas();
-		this.isbn = livro.getIsbn();
-		this.dataPublicacao = livro.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
+	public DetalhesLivroResponse(String titulo, Autor autor, String descricao, BigDecimal valor, String resumo,
+			String sumario, Long paginas, String isbn, String dataPublicacao) {
+		super();
+		this.titulo = titulo;
+		this.autor = autor;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.resumo = resumo;
+		this.sumario = sumario;
+		this.paginas = paginas;
+		this.isbn = isbn;
+		this.dataPublicacao = dataPublicacao;
 	}
+
+
 
 	public String getTitulo() {
 		return titulo;
