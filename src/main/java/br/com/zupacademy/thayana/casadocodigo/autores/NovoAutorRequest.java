@@ -1,10 +1,10 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.autores;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.CampoUnico;
 
 public class NovoAutorRequest {
 
@@ -35,6 +35,8 @@ public class NovoAutorRequest {
 		return email;
 	}
 
+	/*Criei esse setter porque o jackson não conseguiu desserializar o
+	 * JSON com a data no parâmetro pelo construtor.*/
 	public void setEmail(String email) {
 		this.email = email;
 	}

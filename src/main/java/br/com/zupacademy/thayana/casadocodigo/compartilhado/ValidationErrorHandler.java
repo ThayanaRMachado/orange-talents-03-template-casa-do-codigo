@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.config.validacao;
+package br.com.zupacademy.thayana.casadocodigo.compartilhado;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.repository;
+package br.com.zupacademy.thayana.casadocodigo.compartilhado;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,6 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-
-import br.com.zupacademy.thayana.casadocodigo.config.validacao.CampoUnicoValidator;
 
 @Constraint(validatedBy = { CampoUnicoValidator.class })
 @Target({ ElementType.FIELD })

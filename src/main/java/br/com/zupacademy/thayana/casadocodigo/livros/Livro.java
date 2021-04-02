@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.livros;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,6 +14,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import br.com.zupacademy.thayana.casadocodigo.autores.Autor;
+import br.com.zupacademy.thayana.casadocodigo.categorias.Categoria;
 
 @Entity
 public class Livro {
@@ -38,7 +41,7 @@ public class Livro {
 	private BigDecimal valor;
 
 	@Min(100)
-	private Long paginas;
+	private int paginas;
 
 	@NotBlank
 	@Column(unique = true)
@@ -58,7 +61,7 @@ public class Livro {
 	private Categoria categoria;
 
 	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
-			@NotNull @Min(20) BigDecimal valor, @Min(100) Long paginas, @NotBlank String isbn,
+			@NotNull @Min(20) BigDecimal valor, @Min(100) int paginas, @NotBlank String isbn,
 			@NotNull @Future LocalDate dataPublicacao, @NotNull Autor autor, @NotNull Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
@@ -91,7 +94,7 @@ public class Livro {
 		return isbn;
 	}
 
-	public Long getPaginas() {
+	public int getPaginas() {
 		return paginas;
 	}
 
@@ -109,6 +112,9 @@ public class Livro {
 
 	public LocalDate getDataPublicacao() {
 		return dataPublicacao;
+	}
+
+	private void get() {
 	}
 
 	@Override

@@ -1,8 +1,8 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.categorias;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.CampoUnico;
 
 public class NovaCategoriaRequest {
 
@@ -18,6 +18,8 @@ public class NovaCategoriaRequest {
 		this.nome = nome;
 	}
 
+	/*Criei esse setter porque o jackson não conseguiu desserializar o
+	 * JSON com a data no parâmetro pelo construtor.*/
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

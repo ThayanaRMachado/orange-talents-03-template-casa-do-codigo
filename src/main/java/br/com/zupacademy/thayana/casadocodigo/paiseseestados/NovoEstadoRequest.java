@@ -1,12 +1,11 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.paiseseestados;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.util.Assert;
-
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.ExistsId;
 
 public class NovoEstadoRequest {
 
@@ -15,6 +14,7 @@ public class NovoEstadoRequest {
 	private String nome;
 
 	@NotNull
+	@ExistsId(domainClass = Pais.class, fieldName = "id")
 	private Long idPais;
 
 	public NovoEstadoRequest(@NotBlank String nome, @NotNull Long idPais) {
@@ -24,12 +24,7 @@ public class NovoEstadoRequest {
 	}
 
 	public Estado toModel(EntityManager manager) {
-		Pais pais = manager.find(Pais.class, idPais);
-
-		Assert.state(pais != null,
-				"Você está querendo cadastrar um livro para um autor que não existe no banco " + idPais);
-
-		return new Estado(nome, pais);
+		return new Estado(nome, manager.find(Pais.class, idPais));
 	}
 
 }

@@ -1,7 +1,6 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.compra;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,8 +9,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Entity
-public class Cliente {
+import br.com.zupacademy.thayana.casadocodigo.paiseseestados.Estado;
+import br.com.zupacademy.thayana.casadocodigo.paiseseestados.Pais;
+
+public class Compra {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,11 +57,11 @@ public class Cliente {
 	@NotBlank
 	private String cep;
 
-	public Cliente() {
+	public Compra() {
 
 	}
 
-	public Cliente(@NotBlank @Email String email, @NotBlank String nome, @NotBlank String sobrenome,
+	public Compra(@NotBlank @Email String email, @NotBlank String nome, @NotBlank String sobrenome,
 			@NotBlank String documento, Integer tipo, @NotBlank String endereco, @NotBlank String complemento,
 			@NotBlank String cidade, @NotNull Pais pais, Estado estado, @NotBlank String telefone,
 			@NotBlank String cep) {

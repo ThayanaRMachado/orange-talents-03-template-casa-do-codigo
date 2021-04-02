@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.controller;
+package br.com.zupacademy.thayana.casadocodigo.livros;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,12 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.zupacademy.thayana.casadocodigo.modelo.DetalhesLivroResponse;
-import br.com.zupacademy.thayana.casadocodigo.modelo.Livro;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoLivroRequest;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoLivroResponse;
-import br.com.zupacademy.thayana.casadocodigo.repository.LivroRepository;
 
 @RestController
 @RequestMapping("/livros")

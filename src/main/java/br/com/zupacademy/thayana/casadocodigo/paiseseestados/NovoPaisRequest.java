@@ -1,12 +1,10 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.paiseseestados;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.CampoUnico;
 
 public class NovoPaisRequest {
-
-	private Long id;
 	
 	@NotBlank
 	@CampoUnico(classe = Pais.class, nomeAtributo = "nome")
@@ -16,20 +14,12 @@ public class NovoPaisRequest {
 
 	}
 
-	public NovoPaisRequest(@NotBlank String nome, Long id) {
+	public NovoPaisRequest(@NotBlank String nome) {
 		this.nome = nome;
-		this.id = id;
 	}
 
 	public String getNome() {
 		return nome;
 	}
-
-	public Long getId() {
-		return id;
-	}
 	
-	public Pais toModel() {
-		return new Pais(this.nome);
-	}
 }

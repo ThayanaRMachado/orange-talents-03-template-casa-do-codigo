@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.livros;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,7 +15,9 @@ import org.springframework.util.Assert;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
+import br.com.zupacademy.thayana.casadocodigo.autores.Autor;
+import br.com.zupacademy.thayana.casadocodigo.categorias.Categoria;
+import br.com.zupacademy.thayana.casadocodigo.compartilhado.CampoUnico;
 
 public class NovoLivroRequest {
 
@@ -35,7 +37,7 @@ public class NovoLivroRequest {
 	private BigDecimal valor;
 
 	@Min(100)
-	private Long paginas;
+	private int paginas;
 
 	@NotBlank
 	@CampoUnico(classe = Livro.class, nomeAtributo = "isbn")
@@ -53,7 +55,7 @@ public class NovoLivroRequest {
 	private Long idCategoria;
 
 	public NovoLivroRequest(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
-			@NotNull @Min(20) BigDecimal valor, @Min(100) Long paginas, @NotBlank String isbn,
+			@NotNull @Min(20) BigDecimal valor, @Min(100) int paginas, @NotBlank String isbn,
 			@Future @NotNull LocalDate dataPublicacao, @NotNull Long idAutor, @NotNull Long idCategoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;

@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.controller;
+package br.com.zupacademy.thayana.casadocodigo.paiseseestados;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoPaisRequest;
-import br.com.zupacademy.thayana.casadocodigo.modelo.Pais;
-
 @RestController
 @RequestMapping("/pais")
 public class PaisController {
@@ -23,9 +20,8 @@ public class PaisController {
 	@PostMapping
 	@Transactional
 	public String cadastrar(@RequestBody @Valid NovoPaisRequest request) {
-		Pais paisSalvo = request.toModel();
+		Pais paisSalvo = new Pais(request.getNome());
 		manager.persist(paisSalvo);
 		return paisSalvo.toString();
-
 	}
 }

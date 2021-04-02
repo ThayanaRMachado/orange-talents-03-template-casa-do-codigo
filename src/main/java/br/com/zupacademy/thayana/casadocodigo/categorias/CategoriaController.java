@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.controller;
+package br.com.zupacademy.thayana.casadocodigo.categorias;
 
 import java.util.List;
 
@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.zupacademy.thayana.casadocodigo.modelo.Categoria;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovaCategoriaRequest;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovaCategoriaResponse;
-import br.com.zupacademy.thayana.casadocodigo.repository.CategoriaRepository;
 
 @RestController
 @RequestMapping("/categorias")

@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.config.validacao;
+package br.com.zupacademy.thayana.casadocodigo.compartilhado;
 
 import java.util.List;
 
@@ -10,8 +10,6 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-
-import br.com.zupacademy.thayana.casadocodigo.repository.CampoUnico;
 
 @Component
 public class CampoUnicoValidator implements ConstraintValidator<CampoUnico, Object>{
@@ -30,10 +28,11 @@ public class CampoUnicoValidator implements ConstraintValidator<CampoUnico, Obje
 	 
 	@Override
 	public boolean isValid(Object value, ConstraintValidatorContext context) {
-		Query query = entityManager.createQuery("select 1 from " + classe.getName() + " where " + palavra + " =:value");
+		Query query = entityManager.createQuery("select 1 from "+classe.getName()+" where "+palavra+"=:value");
 		query.setParameter("value", value);
 		List<?> list = query.getResultList();
-		Assert.isTrue(list.size() <=1, "Foi encontrado mais de um " + classe + "com o atributo " + palavra + " = " + value);
+		Assert.state(list.size() <=1, "Foi encontrado mais de um "+classe+" com o atributo "+palavra+" = "+value);
+		
 		return list.isEmpty();
 	}
 

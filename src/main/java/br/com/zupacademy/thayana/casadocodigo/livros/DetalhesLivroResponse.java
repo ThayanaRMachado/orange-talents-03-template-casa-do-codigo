@@ -1,6 +1,9 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.livros;
 
 import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
+
+import br.com.zupacademy.thayana.casadocodigo.autores.Autor;
 
 public class DetalhesLivroResponse {
 
@@ -16,7 +19,7 @@ public class DetalhesLivroResponse {
 
 	private String sumario;
 
-	private Long paginas;
+	private int paginas;
 
 	private String isbn;
 
@@ -26,21 +29,18 @@ public class DetalhesLivroResponse {
 
 	}
 
-	public DetalhesLivroResponse(String titulo, Autor autor, String descricao, BigDecimal valor, String resumo,
-			String sumario, Long paginas, String isbn, String dataPublicacao) {
-		super();
-		this.titulo = titulo;
-		this.autor = autor;
-		this.descricao = descricao;
-		this.valor = valor;
-		this.resumo = resumo;
-		this.sumario = sumario;
-		this.paginas = paginas;
-		this.isbn = isbn;
-		this.dataPublicacao = dataPublicacao;
+	public DetalhesLivroResponse(Livro livro) {
+		this.titulo = livro.getTitulo();
+		this.autor = livro.getAutor();
+		this.descricao = livro.getAutor().getDescricao();
+		this.valor = livro.getValor();
+		this.resumo = livro.getResumo();
+		this.sumario = livro.getSumario();
+		this.paginas = livro.getPaginas();
+		this.isbn = livro.getIsbn();
+		this.dataPublicacao = livro.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
 	}
-
-
 
 	public String getTitulo() {
 		return titulo;
@@ -66,7 +66,7 @@ public class DetalhesLivroResponse {
 		return sumario;
 	}
 
-	public Long getPaginas() {
+	public int getPaginas() {
 		return paginas;
 	}
 
@@ -77,5 +77,4 @@ public class DetalhesLivroResponse {
 	public String getDataPublicacao() {
 		return dataPublicacao;
 	}
-
 }

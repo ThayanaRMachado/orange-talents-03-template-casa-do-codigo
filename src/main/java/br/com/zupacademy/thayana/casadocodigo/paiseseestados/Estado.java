@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.paiseseestados;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +36,10 @@ public class Estado {
 	@Override
 	public String toString() {
 		return "Estado [id=" + id + ", nome=" + nome + ", pais=" + pais + "]";
+	}
+	
+	public boolean pertenceAPais(Pais pais) {
+		return this.pais.equals(pais);
 	}
 
 }

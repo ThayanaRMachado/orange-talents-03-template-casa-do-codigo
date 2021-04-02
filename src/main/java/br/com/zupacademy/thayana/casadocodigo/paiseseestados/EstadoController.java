@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.controller;
+package br.com.zupacademy.thayana.casadocodigo.paiseseestados;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.zupacademy.thayana.casadocodigo.modelo.Estado;
-import br.com.zupacademy.thayana.casadocodigo.modelo.NovoEstadoRequest;
 
 @RestController
 @RequestMapping("/estado")

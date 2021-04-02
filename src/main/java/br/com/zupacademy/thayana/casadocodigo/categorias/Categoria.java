@@ -1,4 +1,4 @@
-package br.com.zupacademy.thayana.casadocodigo.modelo;
+package br.com.zupacademy.thayana.casadocodigo.categorias;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
